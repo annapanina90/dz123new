@@ -43,18 +43,30 @@ public class Base {
             String array[] = new String[size]; // Создаём массив string размером в size
             System.out.println("Введите значения массива: ");
             /*Пройдёмся по всему массиву, заполняя его*/
-            for (int i = 0; i < size; i++) {
+            for (int i = 0; i < array.length; i++) {
                 array[i] = scanner.next();
             }
             // Заполняем массив элементами, введёнными с клавиатуры
 
+            /*
             for (int i = 0; i < array.length; i++)
 
                 if (array.length < array[++i].length()) {
                     System.out.println("Самое длинное слово в массиве = " + array[++i]);
                 } else {
                     i++;
+                }*/
+            String max = array[0];
+            for (int i = 0; i < array.length-1; i++) {
+                for (int j = i + 1; j < array.length; j++ ) {
+                    if (array[i].length() < array[j].length()) {
+                        max = array[j];
+                    }
                 }
+            }
+            System.out.println("Самое длинное слово в массиве = " + max);
+
+
         }
         scanner.close();
     }
